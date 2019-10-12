@@ -1,0 +1,84 @@
+命令：
+git add:将本地文件添加到暂存区
+git commit:将暂存区的内容 提交到 本地仓库（本地分支，默认master分支）
+git push: 将本地仓库的内容 推送到 远程仓库（远程分支）
+git pull: 将远程仓库（远程分支）的内容 拉取到 本地仓库
+
+
+安装git
+选择 use git from git bash only,其它默认下一步
+配置path: E:\Git\bin
+配置git:桌面右键选择 git bash Here
+配置用户名和邮箱
+ git config --global user.name "姓名"
+ git config --global user.email "邮箱"
+
+查看姓名邮箱是否配置成功
+C:\Users\用户名\.gitconfig 
+[user]
+	name = 姓名
+	email = 邮箱
+
+搭建git服务器(远程仓库)：统一的托管网站(http://github.com)
+
+本地与远程配置免密钥登录，配置ssh
+
+配置ssh:先在本地配置，发送给远程
+
+ssh-keygen -t rsa -C 邮箱     一直回车到结束
+到C:\Users\用户名\.shh文件夹内
+生成 id_rsa和id_rsa.pub文件
+
+发送给远程:
+github -- settings --SSH and GPG keys -- New SHH key
+title 项目名称 
+key 填入本地生成的key(id_rsa.pub)
+
+测试连通性：
+ssh -T git@github.com
+
+如果本地和远程成功通信，则在.ssh目录下会生成known_hosts文件
+
+如果失败：多尝试几次、检查回车符
+
+
+在本地新建git项目，并发送给远程
+创建项目
+
+ 在项目根目录 右键 - git bash here - git init
+
+远程创建项目
+ 点击your profile - Repositories - new 填写Repository name 保存
+ 生成https://github.com/realman9527/mygit.git
+
+本地项目和远程项目关联
+git remote add origin git@github.com:realman9527/mygit.git
+
+第一次发布项目（本地-远程）
+1.git add  .     //文件-暂存区
+2.git commit -m "注释内容"  //暂存区-本地分支(默认master)（本地仓库）
+3.git push -u origin master   //本地分支（本地仓库）-远程分支（远程仓库）
+
+第一次下载项目（远程-本地）
+git clone git@github.com:realman9527/mygit.git
+
+提交 （本地-远程）右键 - git bash here
+1.git add  .     //文件-暂存区
+2.git commit -m "注释内容"  //暂存区-本地分支(默认master)（本地仓库）
+3.git push origin master   //本地分支（本地仓库）-远程分支（远程仓库）
+
+更新（远程-本地）
+git pull
+
+
+
+
+
+
+
+
+
+
+
+
+
