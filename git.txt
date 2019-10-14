@@ -70,7 +70,7 @@ git clone git@github.com:realman9527/mygit.git
 更新（远程-本地）
 git pull
 
-
+fast
 
 
 
